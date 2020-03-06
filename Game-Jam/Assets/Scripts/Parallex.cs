@@ -13,7 +13,7 @@ public class Parallex : MonoBehaviour
     void Start()
     {
         startpos = transform.position.x;
-        length = GetComponent<SpriteRenderer>().bounds.size.x * 5;
+        length = GetComponent<SpriteRenderer>().bounds.size.x * 8;
     }
 
     // Update is called once per frame
