@@ -8,10 +8,43 @@ public class Enemy : MonoBehaviour
 
     public int maxHealth = 100;
     int currentHealth;
+
+    private float timeBtwShots;
+    public float startTimeBtwShots;
+    public int attackRange = 35;
+    public bool inRange;
+
+    public GameObject projectile;
+    public Transform player;
+
+
+    
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
         currentHealth = maxHealth;
+
+        timeBtwShots = startTimeBtwShots;
+    }
+
+    void Update()
+    {
+
+        float distance = Vector3.Distance(player.position, transform.position);
+
+        inRange = distance < attackRange;
+
+        if (timeBtwShots <= 0 && inRange)
+        {
+            Instantiate(projectile, transform.position, Quaternion.identity);
+            timeBtwShots = startTimeBtwShots;
+        }
+        else
+        {
+            timeBtwShots -= Time.deltaTime;
+        }
+       
     }
 
     public void TakeDamage(int damage)
