@@ -7,7 +7,12 @@ public class LevelLoader : MonoBehaviour
 {
     public Animator transition;
 
-    public float transitionTime = 1f;
+    public float transitionTime = 1.5f;
+
+    public void transitionHelp()
+    {
+        StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
+    }
 
     public void onClick()
     {
@@ -17,7 +22,7 @@ public class LevelLoader : MonoBehaviour
 
     void OnEnable()
     {
-        if(SceneManager.GetActiveScene().buildIndex == 1)
+        if(SceneManager.GetActiveScene().buildIndex == 1 || SceneManager.GetActiveScene().buildIndex == 3)
         {
             StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
         }
@@ -32,7 +37,15 @@ public class LevelLoader : MonoBehaviour
 
         Debug.Log("Moving to next scene.");
 
-        SceneManager.LoadScene(levelIndex);
+        if(levelIndex < SceneManager.sceneCountInBuildSettings)
+        {
+            SceneManager.LoadScene(levelIndex);
+        }
+        else
+        {
+            SceneManager.LoadScene(0);
+        }
+        
     }
 
 }

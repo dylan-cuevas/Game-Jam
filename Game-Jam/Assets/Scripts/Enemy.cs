@@ -6,6 +6,8 @@ public class Enemy : MonoBehaviour
 {
     public Animator animator;
 
+    public Door door;
+
     public int maxHealth = 100;
     int currentHealth;
 
@@ -61,6 +63,7 @@ public class Enemy : MonoBehaviour
     {
         Debug.Log("Enemy died.");
 
+        door.addCount();
         animator.SetBool("IsDead", true);
 
         GetComponent<Collider2D>().enabled = false;
