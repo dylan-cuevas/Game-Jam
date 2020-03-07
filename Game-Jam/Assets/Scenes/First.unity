@@ -19337,6 +19337,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1089198037}
+  l: {fileID: 1115726778}
   maxHealth: 100
 --- !u!114 &1115726778 stripped
 MonoBehaviour:
@@ -19782,6 +19783,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LevelLoader
+      objectReference: {fileID: 0}
+    - target: {fileID: 6279098021896751285, guid: 405c713c886c11a4299dc20bf84ee1ab,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.00024414062
+      objectReference: {fileID: 0}
+    - target: {fileID: 6279098021896751285, guid: 405c713c886c11a4299dc20bf84ee1ab,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.00012207031
       objectReference: {fileID: 0}
     - target: {fileID: 8369904364153189975, guid: 405c713c886c11a4299dc20bf84ee1ab,
         type: 3}

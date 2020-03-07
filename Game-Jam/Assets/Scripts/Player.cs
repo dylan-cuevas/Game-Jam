@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public Animator animator;
+    public LevelLoader l;
 
     public int maxHealth = 100;
     int currentHealth;
@@ -30,7 +31,13 @@ public class Player : MonoBehaviour
 
     void Die()
     {
+        animator.SetBool("IsDead", true);
         Debug.Log("You died.");
+
+        GetComponent<Collider2D>().enabled = false;
+        this.enabled = false;
+        l.restart();
+       
 
     }
 
